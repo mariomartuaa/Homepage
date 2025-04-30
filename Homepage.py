@@ -18,7 +18,7 @@ st.markdown("""
     background-color: #ffff;
 }
 
-[data-testid="stAppViewBlockContainer"] {
+[data-testid="stMainBlockContainer"] {
     background-color: #ffff;
 }
 
