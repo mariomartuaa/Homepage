@@ -19,7 +19,42 @@ st.markdown("""
 }
 
 [data-testid="stAppViewBlockContainer"] {
-    background-color: #ffff;
+    background: linear-gradient(130deg, #fdf6ec 0%, #e6f4ea 50%, #fff9c4 100%);
+}
+
+.banner {
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20230912/pngtree-the-whole-field-was-full-of-cabbages-image_13120953.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.banner h1 {
+    font-size: 3rem;
+    color: #ffffff;
+    margin: 10px;
+    text-shadow: 1px 1px 3px #000;
+}
+.banner h2 {
+    font-size: 1.5rem;
+    color: #f0f0f0;
+    margin: 0 20px;
+    text-shadow: 1px 1px 2px #000;
+}
+.banner button {
+    height: 45px;
+    padding: 0 40px;
+    border-radius: 100px;
+    border: 1px solid #ffffff;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #1b4332;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
 }
 
 .streamlit-expanderHeader {
@@ -60,59 +95,77 @@ st.markdown("""
 }
 
 /* Optional: semua heading dan teks lainnya */
-h1, h2, h3, h4, h5, h6, p, li, span, div {
-    color: #2e5339;
-}
 </style>
 """, unsafe_allow_html=True)
 
 # === BANNER ===
 # st.image("assets/banner.jpg", use_column_width=True)
 st.markdown("""
-    <div style="top: 0; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 20px;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Crocidolomia_pavonana_%28ento-csiro-au%29.jpg" alt="Crocidolomia Pavonana" style="height: 100px;">
-        <h1 style="font-size: 36px; margin: 0;">Klasifikasi Tahapan Instar Crocidolomia Pavonana</h1>
-        <h2 style="font-size: 18px; margin: 0 10px;">Unggah gambar larva Crocidolomia pavonana dan lihat hasil prediksi tahapan instarnya secara otomatis.</h2>
-        <button style="height: 45px; padding: 0 40px; border-radius: 100px; border: 1px solid #2e5339; background-color: #fff; color: #2e5339; font-size: 16px; cursor: pointer;">Mulai</button>
+    <div class="banner">
+        <h1>Klasifikasi Tahapan Instar Crocidolomia Pavonana</h1>
+        <h2>Unggah gambar larva Crocidolomia pavonana dan lihat hasil prediksi tahapan instarnya secara otomatis.</h2>
+        <button onclick="window.scrollTo({ top: 800, behavior: 'smooth' })">Mulai</button>
     </div>
 """, unsafe_allow_html=True)
 
 
 # === FITUR UTAMA ===
-st.markdown(f'<h1 style="text-align: center; font-size: 40px;">Fitur Utama</h1>', unsafe_allow_html=True)
-
-col1, col2 = st.columns(2)
-with col1:
-    st.markdown(
-        '<div class="card">🔍 <strong>Prediksi Instar Otomatis</strong><br>'
-        'Model AI kami mengidentifikasi instar larva dengan akurat berdasarkan citra yang diunggah.</div>',
-        unsafe_allow_html=True
-    )
-    
-    with st.expander("Baca selengkapnya"):
+st.markdown("---")
+with st.container():
+    st.markdown(f'<h1 style="text-align: center; font-size: 40px; color: #2e5339;">Fitur Utama</h1>', unsafe_allow_html=True)
+    col1, col2 = st.columns(2)
+    with col1:
         st.markdown(
             '<div class="card">🔍 <strong>Prediksi Instar Otomatis</strong><br>'
             'Model AI kami mengidentifikasi instar larva dengan akurat berdasarkan citra yang diunggah.</div>',
             unsafe_allow_html=True
         )
+        
+        with st.expander("Baca selengkapnya"):
+            st.markdown(
+                """
+                <div class="card">
+                    <ul>
+                        <li>Menggunakan Model Pretrained CNN InceptionV3.</li>
+                        <li>Memprediksi tahapan instar (1 hingga 4) berdasarkan citra larva yang diunggah.</li>
+                        <li>Menampilkan hasil prediksi berserta tingkat kepercayaan (confidence score) dari setiap model.</li>
+                        <li>Membantu petani dan peneliti mengidentifikasi fase larva dengan cepat dan akurat.</li>
+                    </ul>
+                </div>""",
+                unsafe_allow_html=True
+            )
+            st.image("assets/banner.jpg")
 
-with col2:
-    st.markdown(
-        '<div class="card">🔥 <strong>Visualisasi Grad-CAM</strong><br>'
-        'Lihat bagian gambar mana yang menjadi fokus model dalam menentukan klasifikasi.</div>',
-        unsafe_allow_html=True
-    )
-    with st.expander("Baca selengkapnya"):
+
+    with col2:
         st.markdown(
-            '<div class="card">🔍 <strong>Prediksi Instar Otomatis</strong><br>'
-            'Model AI kami mengidentifikasi instar larva dengan akurat berdasarkan citra yang diunggah.</div>',
+            '<div class="card">🔥 <strong>Visualisasi Grad-CAM</strong><br>'
+            'Lihat bagian gambar mana yang menjadi fokus model dalam menentukan klasifikasi.</div>',
             unsafe_allow_html=True
         )
-    
+        with st.expander("Baca selengkapnya"):
+            st.markdown(
+                """
+                <div class="card">
+                    <ul>
+                        <li>Menampilkan area penting pada gambar yang memengaruhi keputusan model.</li>
+                        <li>Dihasilkan dari layer konvolusi akhir dari model.</li>
+                        <li>Disajikan dalam bentuk gambar heatmap superimposed di atas gambar asli.</li>
+                    </ul>
+                </div>""",
+                unsafe_allow_html=True
+            )
+            col1, col2, col3 = st.columns([2,3,2])
+            with col1:
+                st.write('')
+            with col2:
+                st.image('assets/grad-cam.jpg')
+            with col3:
+                st.write('')
 
 
 # === GAMBAR CROCIDILOMIA DEWASA ===
-st.markdown(f'<h1 style="text-align: center; font-size: 40px;">Crocidolomia Pavonana</h1>', unsafe_allow_html=True)
+st.markdown(f'<h1 style="text-align: center; font-size: 40px; color: #2e5339;">Crocidolomia Pavonana</h1>', unsafe_allow_html=True)
 # col1, col2, col3 = st.columns(3)
 
 # with col1:
@@ -132,7 +185,7 @@ st.markdown('<div style="display: flex; justify-content: center;"><img src="http
 col1, col2 = st.columns(2)
 
 with col1:
-    st.markdown(f'<h1 style="text-align: center; font-size: 30px;">Klasifikasi Ilmiah</h1>', unsafe_allow_html=True)
+    st.markdown(f'<h1 style="text-align: center; font-size: 30px; color: #2e5339;">Klasifikasi Ilmiah</h1>', unsafe_allow_html=True)
     st.markdown(
         '<div class="card-informasi">'
         '- <strong>Kingdom</strong>: Animalia<br>'
@@ -146,7 +199,7 @@ with col1:
     )
 
 with col2:
-    st.markdown(f'<h1 style="text-align: center; font-size: 30px;">Dampak Kerusakan</h1>', unsafe_allow_html=True)
+    st.markdown(f'<h1 style="text-align: center; font-size: 30px; color: #2e5339;">Dampak Kerusakan</h1>', unsafe_allow_html=True)
     st.markdown(
         '<div class="card-informasi">'
         '- Menyerang <strong>daun muda</strong> dan <strong>titik tumbuh tanaman</strong>.<br>'
@@ -156,25 +209,25 @@ with col2:
         unsafe_allow_html=True
     )
 
-st.markdown(f'<h1 style="text-align: center; font-size: 40px;">Tanaman Inang</h1>', unsafe_allow_html=True)
+st.markdown(f'<h1 style="text-align: center; font-size: 30px; color: #2e5339;">Tanaman Inang</h1>', unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.markdown(f'<h1 style="text-align: center; font-size: 20px;">Kubis</h1>', unsafe_allow_html=True)
+    st.markdown(f'<h1 style="text-align: center; font-size: 20px; color: #2e5339;">Kubis</h1>', unsafe_allow_html=True)
     st.image("assets/kubis.jpg", use_column_width=True)
 
 with col2:
-    st.markdown(f'<h1 style="text-align: center; font-size: 20px;">Sawi</h1>', unsafe_allow_html=True)
+    st.markdown(f'<h1 style="text-align: center; font-size: 20px; color: #2e5339;">Sawi</h1>', unsafe_allow_html=True)
     st.image("assets/sawi.jpg", use_column_width=True)
 
 with col3:
-    st.markdown(f'<h1 style="text-align: center; font-size: 20px;">Brokoli</h1>', unsafe_allow_html=True)
+    st.markdown(f'<h1 style="text-align: center; font-size: 20px; color: #2e5339;">Brokoli</h1>', unsafe_allow_html=True)
     st.image("assets/sawi.jpg", use_column_width=True)
 
 
 # === INSTAR SEBAGAI KARTU ===
-st.markdown(f'<h1 style="text-align: center; font-size: 40px;">Tahapan Instar Larva</h1>', unsafe_allow_html=True)
+st.markdown(f'<h1 style="text-align: center; font-size: 40px; color: #2e5339;">Tahapan Instar Larva</h1>', unsafe_allow_html=True)
 instar_data = [
     {
         "title": "Instar 1",
@@ -201,7 +254,7 @@ instar_data = [
 cols = st.columns(4)
 for i in range(4):
     with cols[i]:
-        st.markdown(f'<h1 style="text-align: center; font-size: 20px;">{instar_data[i]["title"]}</h1>', unsafe_allow_html=True)
+        st.markdown(f'<h1 style="text-align: center; font-size: 20px; color: #2e5339;">{instar_data[i]["title"]}</h1>', unsafe_allow_html=True)
         st.image(instar_data[i]["img"], use_column_width=True)
         st.markdown(f'<div class="card">{instar_data[i]["desc"]}</div>', unsafe_allow_html=True)
 
