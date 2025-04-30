@@ -125,7 +125,7 @@ st.markdown(f'<h1 style="text-align: center; font-size: 40px;">Crocidolomia Pavo
 #     st.write(' ')
     
 
-st.markdown('<div style="display: flex; justify-content: center;"><img src="assets/crocidolomia_adult.jpg" alt="Alternative text" style="height: 40%;"></div>', unsafe_allow_html=True)
+st.markdown('<div style="display: flex; justify-content: center;"><img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Crocidolomia_pavonana_%28ento-csiro-au%29.jpg" alt="Alternative text" style="height: 40%;"></div>', unsafe_allow_html=True)
 
 # === PENJELASAN ILMIAH ===
 # === INFORMASI PENTING (Menyamping 2 kolom seperti fitur utama) ===
