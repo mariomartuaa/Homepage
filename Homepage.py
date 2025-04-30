@@ -190,32 +190,38 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.markdown(f'<h1 style="text-align: center; font-size: 30px; color: #2e5339;">Klasifikasi Ilmiah</h1>', unsafe_allow_html=True)
-    st.markdown(
-        '<div class="card-informasi">'
-        '- <strong>Kingdom</strong>: Animalia<br>'
-        '- <strong>Phylum</strong>: Arthropoda<br>'
-        '- <strong>Class</strong>: Insecta<br>'
-        '- <strong>Ordo</strong>: Lepidoptera<br>'
-        '- <strong>Family</strong>: Crambidae<br>'
-        '- <strong>Genus</strong>: Crocidolomia<br>'
-        '- <strong>Spesies</strong>: <em>Crocidolomia pavonana</em> (Fabricius)</div>',
-        unsafe_allow_html=True
-    )
+    st.markdown("""
+        <div class="card-informasi">
+            <ul>
+                <li><strong>Kingdom</strong>: Animalia</li>
+                <li><strong>Phylum</strong>: Arthropoda<br></li>
+                <li><strong>Class</strong>: Insecta</li>
+                <li><strong>Ordo</strong>: Lepidoptera</li>
+                <li><strong>Family</strong>: Crambidae</li>
+                <li><strong>Genus</strong>: Crocidolomia</li>
+                <li><strong>Spesies</strong>: <em>Crocidolomia pavonana</em> (Fabricius)</li>
+            </ul>
+        </div>
+        """,
+        unsafe_allow_html=True)
 
 with col2:
     st.markdown(f'<h1 style="text-align: center; font-size: 30px; color: #2e5339;">Dampak Kerusakan</h1>', unsafe_allow_html=True)
-    st.markdown(
-        '<div class="card-informasi">'
-        '- Menyerang <strong>daun muda</strong> dan <strong>titik tumbuh tanaman</strong>.<br>'
-        '- <strong>Kerusakan hingga 100%</strong> pada musim kemarau.<br>'
-        '- Larva memakan daun hingga tersisa tulangnya saja.<br>'
-        '- Mengakibatkan <strong>gagal panen total</strong> jika tidak dikendalikan.</div>',
-        unsafe_allow_html=True
-    )
+    st.markdown("""
+        <div class="card-informasi">
+            <ul>
+                <li>Menyerang daun muda dan titik tumbuh tanaman.</li>
+                <li>Kerusakan hingga 100%pada musim kemarau.</li>
+                <li>Larva memakan daun hingga tersisa tulangnya saja.</li>
+                <li>Mengakibatkan <strong>gagal panen total jika tidak dikendalikan.</li>
+            </ul>
+        </div>
+        """,
+        unsafe_allow_html=True)
 
 st.markdown(f'<h1 style="text-align: center; font-size: 30px; color: #2e5339;">Tanaman Inang</h1>', unsafe_allow_html=True)
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 
 with col1:
     st.markdown(f'<h1 style="text-align: center; font-size: 20px; color: #2e5339;">Kubis</h1>', unsafe_allow_html=True)
@@ -227,7 +233,11 @@ with col2:
 
 with col3:
     st.markdown(f'<h1 style="text-align: center; font-size: 20px; color: #2e5339;">Brokoli</h1>', unsafe_allow_html=True)
-    st.image("assets/sawi.jpg", use_column_width=True)
+    st.image("assets/brokoli.jpg", use_column_width=True)
+    
+with col4:
+    st.markdown(f'<h1 style="text-align: center; font-size: 20px; color: #2e5339;">Lobak</h1>', unsafe_allow_html=True)
+    st.image("assets/lobak.jpg", use_column_width=True)
 
 
 # === INSTAR SEBAGAI KARTU ===
