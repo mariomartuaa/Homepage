@@ -11,7 +11,7 @@ st.markdown("""
         footer {visibility: hidden;}
         header {visibility: hidden;}
         .main .block-container {
-            padding-top: 0rem;
+            padding: 0rem;
         }
         
 [data-testid="stHeader"] {
@@ -22,6 +22,11 @@ st.markdown("""
     background: linear-gradient(130deg, #fdf6ec 0%, #e6f4ea 50%, #fff9c4 100%);
 }
 
+[data-testid="stHorizontalBlock"]{
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
 .banner-picture {
     background-image: url('https://images.unsplash.com/photo-1486328228599-85db4443971f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2FiYmFnZXxlbnwwfHwwfHx8MA%3D%3D');
     background-size: cover;
@@ -29,8 +34,8 @@ st.markdown("""
     height: 100vh;
     position: absolute;
     top:-16px;
-    left:-5rem;
-    right:-5rem;
+    right:0;
+    left:0;
 }
 
 .banner {
@@ -196,7 +201,7 @@ with st.container():
             with col3:
                 st.write('')
 
-st.markdown("""<hr style="background-color: black;">""",unsafe_allow_html=True)
+st.markdown("""<hr style="background-color: black; margin-left:5rem; margin-right:5rem;">""",unsafe_allow_html=True)
 
 # === GAMBAR CROCIDILOMIA DEWASA ===
 st.markdown(f'<h1 style="text-align: center; font-size: 40px; color: #2e5339;">Crocidolomia Pavonana</h1>', unsafe_allow_html=True)
@@ -248,9 +253,8 @@ with col2:
         </div>
         """,
         unsafe_allow_html=True)
-
-st.markdown("""<hr style="background-color: black;">""",unsafe_allow_html=True)
-
+    
+st.markdown("""<hr style="background-color: black; margin-left:5rem; margin-right:5rem;">""",unsafe_allow_html=True)
 st.markdown(f'<h1 style="text-align: center; font-size: 30px; color: #2e5339;">Tanaman Inang</h1>', unsafe_allow_html=True)
 
 col1, col2, col3, col4 = st.columns(4)
@@ -271,7 +275,7 @@ with col4:
     st.markdown(f'<h1 style="text-align: center; font-size: 20px; color: #2e5339;">Lobak</h1>', unsafe_allow_html=True)
     st.image("assets/lobak.jpg", use_column_width=True)
 
-st.markdown("""<hr style="background-color: black;">""",unsafe_allow_html=True)
+st.markdown("""<hr style="background-color: black; margin-left:5rem; margin-right:5rem;">""",unsafe_allow_html=True)
 
 # === INSTAR SEBAGAI KARTU ===
 st.markdown(f'<h1 style="text-align: center; font-size: 40px; color: #2e5339;">Tahapan Instar Larva</h1>', unsafe_allow_html=True)
