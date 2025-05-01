@@ -248,7 +248,8 @@ with col2:
         </div>
         """,
         unsafe_allow_html=True)
-    
+
+st.markdown("""<hr style="background-color: black;">""",unsafe_allow_html=True)
 
 st.markdown(f'<h1 style="text-align: center; font-size: 30px; color: #2e5339;">Tanaman Inang</h1>', unsafe_allow_html=True)
 
