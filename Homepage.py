@@ -22,39 +22,63 @@ st.markdown("""
     background: linear-gradient(130deg, #fdf6ec 0%, #e6f4ea 50%, #fff9c4 100%);
 }
 
-.banner {
-    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20230912/pngtree-the-whole-field-was-full-of-cabbages-image_13120953.png');
+.banner-picture {
+    background-image: url('https://images.unsplash.com/photo-1486328228599-85db4443971f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2FiYmFnZXxlbnwwfHwwfHx8MA%3D%3D');
     background-size: cover;
     background-position: center;
+    height: 100vh;
+    position: absolute;
+    top:-16px;
+    left:-5rem;
+    right:-5rem;
+}
+
+.banner {
+    top: -2rem;
+    left: 0;
+    right: 0;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    position: absolute;
+    z-index: 9999;
 }
 .banner h1 {
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 5vw, 3rem);
     color: #ffffff;
     margin: 10px;
     text-shadow: 1px 1px 3px #000;
 }
 .banner h2 {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 3vw, 1.5rem);
     color: #f0f0f0;
     margin: 0 20px;
     text-shadow: 1px 1px 2px #000;
 }
+
 .banner button {
-    height: 45px;
-    padding: 0 40px;
-    border-radius: 100px;
-    border: 1px solid #ffffff;
-    background-color: rgba(255, 255, 255, 0.8);
+    font-size: clamp(0.875rem, 2vw, 1.125rem);
+    padding: 0 clamp(1rem, 5vw, 2.5rem);
+    height: clamp(40px, 5vh, 50px);
+    border-radius: 30px;
+    border: 2px solid #ffffff;
+    background: linear-gradient(145deg, #fefae0, #e9f5db);
     color: #1b4332;
-    font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
     margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.banner button:hover {
+    background: #d8f3dc;
+    color: #2d6a4f;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    transform: translateY(-2px);
 }
 
 .streamlit-expanderHeader {
@@ -83,7 +107,7 @@ st.markdown("""
     border-radius: 10px;
     padding: 1.5rem;
     margin: 0.5rem 0;
-    background-color: #ffff;
+    background: linear-gradient(135deg, #e9f5db 0%, #c7e9b0 40%, #fef9c3 100%);
     border: 1px solid #2e5339;
     color: #2e5339;
 }
@@ -92,10 +116,10 @@ st.markdown("""
     border-radius: 10px;
     padding: 1.5rem;
     margin: 0.5rem 0;
-    background-color: #ffff;
+    background: linear-gradient(135deg, #e9f5db 0%, #c7e9b0 40%, #fef9c3 100%);
     border: 1px solid #2e5339;
     color: #2e5339;
-    height: 250px;
+
 }
 
 /* Optional: semua heading dan teks lainnya */
@@ -105,6 +129,10 @@ st.markdown("""
 # === BANNER ===
 # st.image("assets/banner.jpg", use_column_width=True)
 st.markdown("""
+    <div class="banner-picture"> </div>
+""", unsafe_allow_html=True)
+
+st.markdown("""
     <div class="banner">
         <h1>Klasifikasi Tahapan Instar Crocidolomia Pavonana</h1>
         <h2>Unggah gambar larva Crocidolomia pavonana dan lihat hasil prediksi tahapan instarnya secara otomatis.</h2>
@@ -112,6 +140,7 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
+st.markdown("""<div style="margin-bottom: 100vh"></div>""",unsafe_allow_html=True)
 
 # === FITUR UTAMA ===
 st.markdown("---")
@@ -167,6 +196,7 @@ with st.container():
             with col3:
                 st.write('')
 
+st.markdown("""<hr style="background-color: black;">""",unsafe_allow_html=True)
 
 # === GAMBAR CROCIDILOMIA DEWASA ===
 st.markdown(f'<h1 style="text-align: center; font-size: 40px; color: #2e5339;">Crocidolomia Pavonana</h1>', unsafe_allow_html=True)
@@ -218,6 +248,7 @@ with col2:
         </div>
         """,
         unsafe_allow_html=True)
+    
 
 st.markdown(f'<h1 style="text-align: center; font-size: 30px; color: #2e5339;">Tanaman Inang</h1>', unsafe_allow_html=True)
 
@@ -239,6 +270,7 @@ with col4:
     st.markdown(f'<h1 style="text-align: center; font-size: 20px; color: #2e5339;">Lobak</h1>', unsafe_allow_html=True)
     st.image("assets/lobak.jpg", use_column_width=True)
 
+st.markdown("""<hr style="background-color: black;">""",unsafe_allow_html=True)
 
 # === INSTAR SEBAGAI KARTU ===
 st.markdown(f'<h1 style="text-align: center; font-size: 40px; color: #2e5339;">Tahapan Instar Larva</h1>', unsafe_allow_html=True)
